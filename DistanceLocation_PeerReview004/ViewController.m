@@ -15,9 +15,14 @@
 @property (weak, nonatomic) IBOutlet UITextField *endLocationATxt;
 @property (weak, nonatomic) IBOutlet UITextField *endLocationBTxt;
 @property (weak, nonatomic) IBOutlet UITextField *endLocationCTxt;
-@property (weak, nonatomic) IBOutlet UILabel *distancALbl;
+@property (weak, nonatomic) IBOutlet UITextField *endLocationDTxt;
+
+@property (weak, nonatomic) IBOutlet UILabel *distanceALbl;
 @property (weak, nonatomic) IBOutlet UILabel *distanceBLbl;
 @property (weak, nonatomic) IBOutlet UILabel *distanceCLbl;
+@property (weak, nonatomic) IBOutlet UILabel *distanceDLbl;
+
+
 @property (weak, nonatomic) IBOutlet UIButton *calculateBtn;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segmentControl;
 
@@ -33,7 +38,8 @@
     NSString *destA = self.endLocationATxt.text;
     NSString *destB = self.endLocationBTxt.text;
     NSString *destC = self.endLocationCTxt.text;
-    NSArray *stats = @[destA, destB , destC];
+    NSString *destD = self.endLocationDTxt.text;
+    NSArray *stats = @[destA, destB , destC ,destD];
     
     self.Req = [self.Req initWithLocationDescriptions:stats sourceDescription:startLocation];
     
@@ -66,20 +72,25 @@
                 x = [NSString stringWithFormat:@"%.2f Mile" ,num ];
             }
             if (i == 0){
-                strongSelf.distancALbl.text = x ;
+                strongSelf.distanceALbl.text = x ;
             }else if (i == 1){
                 strongSelf.distanceBLbl.text = x ;
-            } else{
+            } else if (i == 2 ){
                 strongSelf.distanceCLbl.text = x;
+            } else {
+                strongSelf.distanceDLbl.text = x;
             }
           
         }else {
             if (i == 0){
-                strongSelf.distancALbl.text = @"error";
+                strongSelf.distanceALbl.text = @"error";
             }else if (i == 1){
                 strongSelf.distanceBLbl.text = @"error";
-            }else{
+            }else if (i ==2 ){
                 strongSelf.distanceCLbl.text = @"error";
+            }else {
+                strongSelf.distanceDLbl.text = @"error";
+                
             }
           
         }
