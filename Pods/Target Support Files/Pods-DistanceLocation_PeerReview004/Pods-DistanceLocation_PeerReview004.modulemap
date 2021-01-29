@@ -1,0 +1,6 @@
+framework module Pods_DistanceLocation_PeerReview004 {
+  umbrella header "Pods-DistanceLocation_PeerReview004-umbrella.h"
+
+  export *
+  module * { export * }
+}
